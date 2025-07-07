@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
                 let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < mouse.radius + this.size) {
-                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) { this.x += 1,8; }
-                    if (mouse.x > this.x && this.x > this.size * 10) { this.x -= 1,8; }
-                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) { this.y += 1,8; }
-                    if (mouse.y > this.y && this.y > this.size * 10) { this.y -= 1,8; }
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) { this.x += 5; }
+                    if (mouse.x > this.x && this.x > this.size * 10) { this.x -= 5; }
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) { this.y += 5; }
+                    if (mouse.y > this.y && this.y > this.size * 10) { this.y -= 5; }
                 }
                 this.x += this.directionX; this.y += this.directionY; this.draw();
             }
@@ -63,22 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCanvas();
     }
 
-    // --- LÓGICA DE CONTEÚDO DINÂMICO ---
+    // --- LÓGICA DE CONTEÚDO DINÂMICO (ATUALIZADO) ---
     const sectorSolutions = {
         solar: [
-            { icon: 'shield-check', title: 'Segurança Perimetral', description: 'Sensores de fibra ótica, cercas elétricas e barreiras de infravermelho para detecção precisa de invasões em grandes áreas.' },
-            { icon: 'drone', title: 'Rondas com Drones', description: 'Drones autônomos com câmeras térmicas que cobrem todo o perímetro em minutos, identificando ameaças antes que se aproximem.' },
-            { icon: 'video', title: 'Vigilância com IA', description: 'Câmeras que analisam comportamento, diferenciam animais de pessoas e alertam a central sobre qualquer atividade suspeita.' }
+            { icon: 'shield-check', title: 'Vigilância Patrimonial', description: 'Equipes especializadas na proteção de grandes perímetros e ativos de alto valor, com rondas estratégicas e presença constante em UFV\'s.' },
+            { icon: 'video', title: 'Monitoramento Remoto', description: 'Supervisão contínua com câmeras de alta definição e sistemas inteligentes para detecção rápida de anomalias ou riscos em usinas.' },
+            { icon: 'git-branch', title: 'Controle de Acesso', description: 'Gestão rigorosa da entrada e saída de veículos e técnicos para garantir a integridade da planta e prevenir acessos não autorizados.' }
         ],
         industrial: [
-            { icon: 'truck', title: 'Controle de Docas', description: 'Sistema de agendamento e verificação de lacres com reconhecimento de placas (LPR) para um controle logístico seguro e eficiente.' },
-            { icon: 'eye', title: 'Prevenção de Perdas', description: 'Equipes especializadas e monitoramento discreto para identificar e mitigar riscos de furtos internos e externos de ativos.' },
-            { icon: 'users', title: 'Gestão de Acesso', description: 'Plataforma integrada para gerir o acesso de funcionários, terceirizados e visitantes, definindo permissões por área e horário.' }
+            { icon: 'shield-check', title: 'Vigilância Especializada', description: 'Proteção robusta para parques industriais, atuando de forma preventiva para neutralizar riscos e garantir a integridade dos ativos.' },
+            { icon: 'video', title: 'Segurança Eletrônica', description: 'Sistema de CFTV com monitoramento inteligente para cobrir todas as áreas críticas do complexo, da produção ao armazenamento.' },
+            { icon: 'users', title: 'Serviços de Portaria', description: 'Controle de acesso para gerenciar o fluxo de funcionários, fornecedores e veículos, otimizando a segurança e a logística industrial.' }
         ],
         corporate: [
-            { icon: 'fingerprint', title: 'Acesso Biométrico', description: 'Catracas e portas com leitores de alta precisão que garantem o acesso rápido e seguro apenas a pessoas autorizadas.' },
-            { icon: 'building', title: 'Gestão de Andares', description: 'Controle de elevadores integrado ao sistema de acesso, restringindo a circulação de visitantes a andares específicos.' },
-            { icon: 'alarm-clock-check', title: 'Monitoramento 24h', description: 'Nossa central monitora todas as câmeras e sensores do edifício, acionando equipes de resposta a qualquer sinal de anormalidade.' }
+            { icon: 'shield-check', title: 'Vigilância Corporativa', description: 'Presença de vigilantes qualificados para garantir a segurança de edifícios comerciais, atuando de forma discreta e eficiente.' },
+            { icon: 'alarm-clock-check', title: 'Monitoramento 24h', description: 'Nossa central acompanha todas as câmeras e sistemas de alarme 24 horas por dia, assegurando uma resposta imediata a qualquer incidente.' },
+            { icon: 'user-check', title: 'Controle de Acesso', description: 'Soluções para gerenciar o fluxo de entrada e saída de pessoas em ambientes corporativos, combinando segurança e organização.' }
         ]
     };
 
