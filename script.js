@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
                 let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < mouse.radius + this.size) {
-                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) { this.x += 5; }
-                    if (mouse.x > this.x && this.x > this.size * 10) { this.x -= 5; }
-                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) { this.y += 5; }
-                    if (mouse.y > this.y && this.y > this.size * 10) { this.y -= 5; }
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) { this.x += 3; }
+                    if (mouse.x > this.x && this.x > this.size * 10) { this.x -= 3; }
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) { this.y += 3; }
+                    if (mouse.y > this.y && this.y > this.size * 10) { this.y -= 3; }
                 }
                 this.x += this.directionX; this.y += this.directionY; this.draw();
             }
@@ -63,22 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCanvas();
     }
 
-    // --- LÓGICA DE CONTEÚDO DINÂMICO (ATUALIZADO) ---
+    // --- LÓGICA DE CONTEÚDO DINÂMICO ---
     const sectorSolutions = {
         solar: [
-            { icon: 'shield-check', title: 'Vigilância Patrimonial', description: 'Equipes especializadas na proteção de grandes perímetros e ativos de alto valor, com rondas estratégicas e presença constante em UFV\'s.' },
-            { icon: 'video', title: 'Monitoramento Remoto', description: 'Supervisão contínua com câmeras de alta definição e sistemas inteligentes para detecção rápida de anomalias ou riscos em usinas.' },
-            { icon: 'git-branch', title: 'Controle de Acesso', description: 'Gestão rigorosa da entrada e saída de veículos e técnicos para garantir a integridade da planta e prevenir acessos não autorizados.' }
+            { image: 'https://sunshield.com.br/wp-content/uploads/2025/06/sun-shield-18-1024x681.webp', icon: 'shield-check', title: 'Vigilância Patrimonial', description: 'Equipes especializadas na proteção de grandes perímetros e ativos de alto valor, com rondas estratégicas e presença constante em UFV\'s.' },
+            { image: 'https://sunshield.com.br/wp-content/uploads/2024/12/monitoramento-1024x681.webp', icon: 'video', title: 'Monitoramento Remoto', description: 'Supervisão contínua com câmeras de alta definição e sistemas inteligentes para detecção rápida de anomalias ou riscos em usinas.' },
+            { image: 'https://i.postimg.cc/HnKHPdhp/newone.jpg', icon: 'git-branch', title: 'Controle de Acesso', description: 'Gestão rigorosa da entrada e saída de veículos e técnicos para garantir a integridade da planta e prevenir acessos não autorizados.' }
         ],
         industrial: [
-            { icon: 'shield-check', title: 'Vigilância Especializada', description: 'Proteção robusta para parques industriais, atuando de forma preventiva para neutralizar riscos e garantir a integridade dos ativos.' },
-            { icon: 'video', title: 'Segurança Eletrônica', description: 'Sistema de CFTV com monitoramento inteligente para cobrir todas as áreas críticas do complexo, da produção ao armazenamento.' },
-            { icon: 'users', title: 'Serviços de Portaria', description: 'Controle de acesso para gerenciar o fluxo de funcionários, fornecedores e veículos, otimizando a segurança e a logística industrial.' }
+            { image: 'https://sunshield.com.br/wp-content/uploads/2025/06/sun-shield-41-1024x681.webp', icon: 'shield-check', title: 'Vigilância Especializada', description: 'Proteção robusta para parques industriais, atuando de forma preventiva para neutralizar riscos e garantir a integridade dos ativos.' },
+            { image: 'https://sunshield.com.br/wp-content/uploads/2025/06/sun-shield-37-1024x681.webp', icon: 'video', title: 'Segurança Eletrônica', description: 'Sistema de CFTV com monitoramento inteligente para cobrir todas as áreas críticas do complexo, da produção ao armazenamento.' },
+            { image: 'https://premiermonitoramento.com.br/wp-content/uploads/2022/09/controle-acesso-souzlaima-1.jpeg', icon: 'users', title: 'Serviços de Portaria', description: 'Controle de acesso para gerenciar o fluxo de funcionários, fornecedores e veículos, otimizando a segurança e a logística industrial.' }
         ],
         corporate: [
-            { icon: 'shield-check', title: 'Vigilância Corporativa', description: 'Presença de vigilantes qualificados para garantir a segurança de edifícios comerciais, atuando de forma discreta e eficiente.' },
-            { icon: 'alarm-clock-check', title: 'Monitoramento 24h', description: 'Nossa central acompanha todas as câmeras e sistemas de alarme 24 horas por dia, assegurando uma resposta imediata a qualquer incidente.' },
-            { icon: 'user-check', title: 'Controle de Acesso', description: 'Soluções para gerenciar o fluxo de entrada e saída de pessoas em ambientes corporativos, combinando segurança e organização.' }
+            { image: 'https://sunshield.com.br/wp-content/uploads/2024/12/SS-4-1024x585.webp', icon: 'shield-check', title: 'Vigilância Corporativa', description: 'Presença de vigilantes qualificados para garantir a segurança de edifícios comerciais, atuando de forma discreta e eficiente.' },
+            { image: 'https://sunshield.com.br/wp-content/uploads/2024/12/monitoramento-1024x681.webp', icon: 'alarm-clock-check', title: 'Monitoramento 24h', description: 'Nossa central acompanha todas as câmeras e sistemas de alarme 24 horas por dia, assegurando uma resposta imediata a qualquer incidente.' },
+            { image: 'https://sunshield.com.br/wp-content/uploads/2025/06/sun-shield-35-1024x681.webp', icon: 'user-check', title: 'Controle de Acesso', description: 'Soluções para gerenciar o fluxo de entrada e saída de pessoas em ambientes corporativos, combinando segurança e organização.' }
         ]
     };
 
@@ -90,14 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!solutions) return;
 
         solutions.forEach((solution, index) => {
-            const iconEl = document.getElementById(`solution-${index + 1}-icon`);
-            const titleEl = document.getElementById(`solution-${index + 1}-title`);
-            const descEl = document.getElementById(`solution-${index + 1}-description`);
+            const card = document.querySelector(`#solution-section .solution-card:nth-child(${index + 1})`);
+            if (card) {
+                const imgEl = card.querySelector('.solution-image');
+                const iconEl = card.querySelector('.solution-icon');
+                const titleEl = card.querySelector('.solution-title');
+                const descEl = card.querySelector('.solution-content p');
 
-            if (iconEl && titleEl && descEl) {
-                iconEl.innerHTML = `<i data-lucide="${solution.icon}"></i>`;
-                titleEl.textContent = solution.title;
-                descEl.textContent = solution.description;
+                if (imgEl) imgEl.src = solution.image;
+                if (iconEl) iconEl.innerHTML = `<i data-lucide="${solution.icon}"></i>`;
+                if (titleEl) titleEl.textContent = solution.title;
+                if (descEl) descEl.textContent = solution.description;
             }
         });
         lucide.createIcons();
@@ -112,6 +115,48 @@ document.addEventListener('DOMContentLoaded', () => {
             solutionSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    // --- LÓGICA DA CÂMERA INTERATIVA (NOVA ABORDAGEM) ---
+    const pupil = document.getElementById('camera-pupil');
+
+    if (pupil) {
+        // Posição central original da pupila no SVG
+        const PUPIL_CENTER_X = 100;
+        const PUPIL_CENTER_Y = 115;
+        // O raio máximo que a pupila pode se mover do centro
+        const MAX_OFFSET = 7; // Um pouco menor que o raio da íris
+
+        window.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                const camera = document.getElementById('security-camera');
+                const rect = camera.getBoundingClientRect();
+                
+                // Centro da câmera na tela
+                const cameraCenterX = rect.left + rect.width / 2;
+                const cameraCenterY = rect.top + rect.height / 2;
+
+                // Vetor da câmera para o mouse
+                const vectorX = e.clientX - cameraCenterX;
+                const vectorY = e.clientY - cameraCenterY;
+
+                // Normaliza o vetor (transforma em um vetor de comprimento 1)
+                const length = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
+                const unitVectorX = vectorX / length;
+                const unitVectorY = vectorY / length;
+
+                // Calcula o novo deslocamento (offset) da pupila
+                const offsetX = MAX_OFFSET * unitVectorX;
+                const offsetY = MAX_OFFSET * unitVectorY;
+
+                // Define a nova posição da pupila, baseada no centro original mais o deslocamento
+                // Garante que o movimento não seja NaN se o mouse estiver exatamente no centro
+                if (!isNaN(offsetX) && !isNaN(offsetY)) {
+                    pupil.setAttribute('cx', PUPIL_CENTER_X + offsetX);
+                    pupil.setAttribute('cy', PUPIL_CENTER_Y + offsetY);
+                }
+            });
+        });
+    }
 
     // --- INICIALIZAÇÕES GERAIS ---
     lucide.createIcons();
