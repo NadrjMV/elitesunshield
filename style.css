@@ -393,3 +393,11 @@ footer {
     .comparison-grid { grid-template-columns: 1fr; }
 }
 
+.logo-track img {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.logo-track img:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
